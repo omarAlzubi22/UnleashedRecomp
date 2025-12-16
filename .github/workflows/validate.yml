@@ -3,11 +3,12 @@
 name: validate
 on:
   workflow_call:
+  workflow_dispatch:
     secrets:
       ASSET_REPO:
-        required: true
+        required: false
       ASSET_REPO_TOKEN:
-        required: true
+        required: false
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
