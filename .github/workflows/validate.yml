@@ -64,7 +64,13 @@ jobs:
 
       - name: Prepare Project
         run: |
-          cp ./private/* ./UnleashedRecompLib/private
+          mkdir -p ./UnleashedRecompLib/private
+          if [ -d "./private" ]; then
+            cp -R ./private/. ./UnleashedRecompLib/private/
+          else
+            echo "No ./private directory in this fork; skipping."
+          fi
+
 
       - name: Configure Project
         env:
