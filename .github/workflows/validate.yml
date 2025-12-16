@@ -31,6 +31,14 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Checkout assets repo
+        if: ${{ secrets.ASSET_REPO != '' && secrets.ASSET_REPO_TOKEN != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.ASSET_REPO }}
+          token: ${{ secrets.ASSET_REPO_TOKEN }}
+
+
       - name: Setup latest Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
