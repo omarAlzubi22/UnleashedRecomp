@@ -31,13 +31,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Checkout Private Repository
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ secrets.ASSET_REPO }}
-          token: ${{ secrets.ASSET_REPO_TOKEN }}
-          path: ./private
-
       - name: Setup latest Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
